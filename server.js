@@ -1,27 +1,35 @@
 // Add near the top of the file
-const apiRoutes = require('./apiRoutes');
 const db = require('./db/connection');
-const express = require('express');
-const PORT = process.env.PORT || 3001;
-const app = express();
-
-// Express middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-
-
-// Add after Express middleware
-app.use('/api', apiRoutes);
-
-app.use((req, res) => {
-    res.status(404).end();
-  });
+const prompts = require("./prompts");
+require("console.table");
 
 // Start server after DB connection
 db.connect(err => {
   if (err) throw err;
   console.log('Database connected.');
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-  });
+
+  initialPrompt();
 });
+
+//Functions
+
+function addDepartment() {
+
+
+  inquirer.prompt({
+    
+      type: "input",
+      message: "What is the name of the department?",
+      name: "deptName"
+
+  }).then(function(answer){
+
+
+
+      connection.query("INSERT INTO department (name) VALUES (?)", [answer.deptName] , function(err, res) {
+          if (err) throw err;
+          console.table(res)
+          startScreen()
+  })
+  })
+}
