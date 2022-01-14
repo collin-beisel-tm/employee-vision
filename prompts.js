@@ -1,6 +1,6 @@
 const inquirer = require("inquirer");
 
-function appWrapper {
+function appWrapper() {
 
     function initialPrompt() {
         inquirer
