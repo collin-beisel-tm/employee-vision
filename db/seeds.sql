@@ -1,3 +1,5 @@
+USE employee_vision;
+
 INSERT INTO departments (dept_name)
 VALUES
   ('Human Resources'),
@@ -6,28 +8,28 @@ VALUES
   ('Sales'),
   ('Logistics');
 
-  INSERT INTO roles (title, salary, department_id)
+  INSERT INTO roles (title, salary, dept_id)
   VALUES
-('HR Manager','100,000',1),
-('HR Analyst','70,000',1),
-('IT Manager','150,000',2),
-('IT Sr Developer','120,000',2),
-('Mkt Manager','120,000',3),
-('Mkt Analyst','100,000',3),
-('Sales Manager','120,000',4),
-('Sales Associate','100,000',4),
-('Logistics Manager','120,000',5),
-('Logistics Analyst','100,000',5);
+('HR Manager','100000',1),
+('HR Analyst','70000',1),
+('IT Manager','150000',2),
+('IT Sr Developer','120000',2),
+('Mkt Manager','120000',3),
+('Mkt Analyst','100000',3),
+('Sales Manager','120000',4),
+('Sales Associate','100000',4),
+('Logistics Manager','120000',5),
+('Logistics Analyst','100000',5);
 
-INSERT INTO employees (first_name,last_name)
+INSERT INTO employees (first_name,last_name,manager_id, roles_id)
 VALUES
-('Joe','Shmo',1,null),
-('Jim','Lim',2,1),
-('Kate','Late',3,null),
-('George','Lorge',4,3),
-('Larry','Ferry',5,null),
-('Aaron','Carter',6,5),
-('Corey','Chapman',7,null),
-('Darius','Queenland',8,7),
-('Will','Olson',9,null),
-('Kenzie','Wylee',10,9);
+('Joe','Shmo',NULL,1),
+('Jim','Lim',1,2),
+('Kate','Late',NULL,3),
+('George','Lorge',3,4),
+('Larry','Ferry',NULL,5),
+('Aaron','Carter',5,6),
+('Corey','Chapman',NULL,7),
+('Darius','Queenland',7,8),
+('Will','Olson',NULL,9),
+('Kenzie','Wylee',9,10);

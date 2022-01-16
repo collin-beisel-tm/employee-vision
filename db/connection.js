@@ -14,4 +14,12 @@ const db = mysql.createConnection(
     console.log('Connected to the Employee Vision database.')
   );
 
-  module.exports = db;
+  // Start server after DB db
+db.connect(err => {
+  if (err) throw err;
+  console.log('Database connected.');
+
+ 
+});
+
+
